@@ -8,18 +8,36 @@ title: API Testing
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.10.2/dist/cdn.min.js"></script>
   <script src="/scripts/script.js"></script>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 p-6">
-  <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="Reflection">Reflection</a></li>
-    </ul>
-  </nav>
+<body class="bg-[#EBECEC] text-[#191919] p-6">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-center">
+      <nav class="mb-8 bg-white rounded-lg shadow-md">
+        <ul class="flex px-6 py-3">
+          <li>
+            <a href="/" 
+               class="text-[#191919] hover:text-blue-600 font-medium transition-colors duration-200 px-3"
+               title="Go home">Home</a>
+          </li>
+          <li>
+            <a href="/about/" 
+               class="text-[#191919] hover:text-blue-600 font-medium transition-colors duration-200 px-3"
+               title="Reflection">Reflection</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     {{ content }}
+  </div>
 </body>
 </html>

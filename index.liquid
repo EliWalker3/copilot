@@ -3,31 +3,39 @@ layout: layout.liquid
 title: API Testing
 ---
 
-<h1 class="text-3xl font-bold mb-6">API Data from JSON Placeholder & DummyJSON</h1>
+<h1 class="text-3xl font-bold mb-6 text-center">JSON Placeholder & DummyJSON</h1>
 
-<!-- JSON Placeholder Posts -->
-<section x-data="fetchJson('https://jsonplaceholder.typicode.com/posts?_limit=6')" class="mb-8">
-    <h2 class="text-2xl font-semibold">JSON Placeholder Posts</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        <template x-for="post in data" :key="post.id">
-            <div class="p-4 bg-white shadow rounded">
-                <h3 class="text-lg font-semibold" x-text="post.title"></h3>
-                <p x-text="post.body" class="text-gray-600"></p>
-            </div>
-        </template>
-    </div>
-</section>
+<div x-data="apiData" x-init="fetchPosts(); fetchProducts()">
+    <!-- JSON Placeholder Posts -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold">JSON Placeholder Posts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            <template x-if="!posts.length">
+                <p class="col-span-3 text-center">Loading posts...</p>
+            </template>
+            <template x-for="post in posts" :key="post.id">
+                <div class="p-4 bg-white shadow rounded">
+                    <h3 class="text-lg font-semibold" x-text="post.title"></h3>
+                    <p x-text="post.body" class="text-gray-600"></p>
+                </div>
+            </template>
+        </div>
+    </section>
 
-<!-- DummyJSON Products -->
-<section x-data="fetchJson('https://dummyjson.com/products?limit=6')" class="mb-8">
-    <h2 class="text-2xl font-semibold">DummyJSON Products</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        <template x-for="product in data.products" :key="product.id">
-            <div class="p-4 bg-white shadow rounded">
-                <h3 class="text-lg font-semibold" x-text="product.title"></h3>
-                <p class="text-gray-600" x-text="'$' + product.price"></p>
-                <img :src="product.thumbnail" class="w-full h-40 object-cover mt-2 rounded">
-            </div>
-        </template>
-    </div>
-</section>
+    <!-- DummyJSON Products -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold">DummyJSON Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            <template x-if="!products.length">
+                <p class="col-span-3 text-center">Loading products...</p>
+            </template>
+            <template x-for="product in products" :key="product.id">
+                <div class="p-4 bg-white shadow rounded">
+                    <h3 class="text-lg font-semibold" x-text="product.title"></h3>
+                    <p class="text-gray-600" x-text="'$' + product.price"></p>
+                    <img :src="product.thumbnail" class="w-full h-40 object-cover mt-2 rounded">
+                </div>
+            </template>
+        </div>
+    </section>
+</div>
