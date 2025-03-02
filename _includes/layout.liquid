@@ -1,5 +1,5 @@
 ---
-title: 11ty Boilerplate
+title: API Testing
 ---
 
 <!DOCTYPE html>
@@ -8,13 +8,16 @@ title: 11ty Boilerplate
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
-  <link rel="stylesheet" href="/styles/screen.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/fetch@3.10.2/dist/cdn.min.js"></script>
+  <script src="/scripts/script.js"></script>
 </head>
-<body>
+<body class="bg-gray-100 p-6">
   <nav>
     <ul>
       <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
+      <li><a href="/about/" title="Reflection">Reflection</a></li>
     </ul>
   </nav>
     {{ content }}
